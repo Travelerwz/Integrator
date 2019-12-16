@@ -22,7 +22,7 @@ bool CMysql::Connect(string host,string user,string passwd,string database)
     }
     cout<<"connect is ok"<<endl;
     return true;
-}
+} 
 
 bool CMysql::Del(string sql)
 {

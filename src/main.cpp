@@ -7,9 +7,12 @@
 #include <string>
 #include "Cmd5.h"
 #include "CMysqlPool.h"
+#include "MutexLockGuard.h"
 
 int main()
 {
+    mutex mt;
+    shared_ptr<MutexLockGuard>ptrmt = make_shared<MutexLockGuard>(mt);
     string sql = "select * from test";
     shared_ptr<CMysqlPool>csql = make_shared<CMysqlPool>(10);
     csql->CreatePool("127.0.0.1","root","666666","test");
