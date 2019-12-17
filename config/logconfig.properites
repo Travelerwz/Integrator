@@ -1,0 +1,31 @@
+log4cplus.rootLogger=TRACE,APPNDER_FILE
+
+#设置日志追加到文件尾
+log4cplus.appender.APPNDER_FILE=log4cplus::DailyRollingFileAppender   
+ 
+#设置日志文件大小
+log4cplus.appender.APPNDER_FILE.MaxFileSize=1024MB
+ 
+#设置生成日志最大个�?
+log4cplus.appender.APPNDER_FILE.MaxBackupIndex=1024
+
+#设置存储频度
+log4cplus.appender.APPNDER_FILE.Schedule=DAILY
+
+
+
+#设置输出日志�?�?
+log4cplus.appender.APPNDER_FILE.DatePattern = yyyy-MM-dd.log
+log4cplus.appender.APPNDER_FILE.File=../logfile/log.log
+log4cplus.appender.APPNDER_FILE.RollOnClose = false
+log4cplus.appender.APPNDER_FILE.CreateDirs=true
+log4cplus.appender.APPNDER_FILE.layout=log4cplus::PatternLayout
+
+#缓冲刷新标识
+log4cplus.appender.APPNDER_FILE.Append=true
+
+#设置日志打印格式
+log4cplus.appender.APPNDER_FILE.layout.ConversionPattern=|%D|%p|%t|%l|%m|%n
+
+
+

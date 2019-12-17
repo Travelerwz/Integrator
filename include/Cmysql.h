@@ -5,6 +5,7 @@
 #include "Cjson.h"
 using namespace std;
 
+namespace Intergrator{
 class CMysql
 {
 public:
@@ -22,3 +23,4 @@ private:
     Json::Value array;
     Json::FastWriter fast_wariter;
 };
+}

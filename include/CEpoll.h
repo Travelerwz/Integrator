@@ -7,6 +7,7 @@
 
 #define PORT 7777
 #define LISTENQ 20
+namespace Intergrator{
 class CEpoll
 {
 public:
@@ -16,3 +17,4 @@ public:
 private:
     int listenfd;
 };
+}

@@ -1,11 +1,11 @@
 #include "CMysqlPool.h"
 
-CMysqlPool::CMysqlPool(int num)
+Intergrator::CMysqlPool::CMysqlPool(int num)
 {
     m_poolnum = num;
 }
 
-CMysqlPool::~CMysqlPool()
+Intergrator::CMysqlPool::~CMysqlPool()
 {
     bool res = DestroyPool();
     if(!res)
@@ -14,7 +14,7 @@ CMysqlPool::~CMysqlPool()
     }
 }
 
-bool CMysqlPool::CreatePool(std::string host,std::string name,std::string passwd,std::string database)
+bool Intergrator::CMysqlPool::CreatePool(std::string host,std::string name,std::string passwd,std::string database)
 {
     //¼ÓËø
     Lock.lock();
@@ -43,12 +43,12 @@ bool CMysqlPool::CreatePool(std::string host,std::string name,std::string passwd
 }
 
 
-bool CMysqlPool::DestroyPool()
+bool Intergrator::CMysqlPool::DestroyPool()
 {
     return true;
 }
 
-CMysql* CMysqlPool::getConnect()
+Intergrator::CMysql* Intergrator::CMysqlPool::getConnect()
 {
     auto iter = Pool.begin();
     for(;iter != Pool.end();iter++)
@@ -64,7 +64,7 @@ CMysql* CMysqlPool::getConnect()
     return NULL;
 }
 
-bool CMysqlPool::FreeConnect(CMysql* mysql)
+bool Intergrator::CMysqlPool::FreeConnect(CMysql* mysql)
 {
     if(mysql == NULL)
     {

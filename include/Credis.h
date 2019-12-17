@@ -5,6 +5,7 @@
 #include "Cmd5.h"
 #include "CBase64.h"
 
+namespace Intergrator{
 class Credis
 {
 public:
@@ -24,3 +25,4 @@ private:
     Json::Reader reader;
     CBase64 bs;
 };
+}

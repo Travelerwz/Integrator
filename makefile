@@ -3,13 +3,13 @@
 vpath %.h ./include
 vpath %.cpp ./src
 
-CFLAG = -g -std=c++11 
+CFLAG = -g -std=c++11 -w 
 MYSQL = `mysql_config --cflags --libs`
-CLIB = -lhiredis ./lib/libjson_linux-gcc-5.4.0_libmt.so -L./lib -lssl -lcrypto
+CLIB = -lhiredis ./lib/libjson_linux-gcc-5.4.0_libmt.so -L./lib -lssl -lcrypto ./lib/liblog4cplus.so
 CXX := g++ 
 INCLUDEDIR = -I./include 
 TARGET = ./target/test
-OBJ = Cmysql.o main.o Credis.o Cjson.o CMD5.o CBase64.o Catomic.o CEpoll.o CMysqlPool.o
+OBJ = Cmysql.o main.o Credis.o Cjson.o CMD5.o CBase64.o Catomic.o CEpoll.o CMysqlPool.o CMyLogger.o
 
 
 $(TARGET):$(OBJ)
@@ -17,6 +17,7 @@ $(TARGET):$(OBJ)
 
 .cpp.o:
 	$(CXX) $(CFLAG)  $(INCLUDEDIR) -c $^ $(MYSQL) $(CLIB)
+
 
 clean:
 	rm -f $(OBJ) $(TARGET)

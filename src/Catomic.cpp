@@ -1,21 +1,21 @@
 #include "Catomic.h"
 
-MyLock::MyLock()
+Intergrator::MyLock::MyLock()
 {
     m_flag.clear();
 }
 
-MyLock::~MyLock()
+Intergrator::MyLock::~MyLock()
 {
 
 }
 
-void MyLock::lock()
+void Intergrator::MyLock::lock()
 {
     while(m_flag.test_and_set());
 }
 
-void MyLock::unlock()
+void Intergrator::MyLock::unlock()
 {
     m_flag.clear();
 }

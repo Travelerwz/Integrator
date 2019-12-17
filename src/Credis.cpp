@@ -1,6 +1,6 @@
 #include "Credis.h"
 
-Credis::Credis()
+Intergrator::Credis::Credis()
 {
     conn = redisConnect("127.0.0.1",6379);
     if(NULL != conn && conn->err)
@@ -11,12 +11,12 @@ Credis::Credis()
     perror("redisConnect");
 }
 
-Credis::~Credis()
+Intergrator::Credis::~Credis()
 {
     redisFree(conn);
 }
 
-bool Credis::Command_set(std::string str)
+bool Intergrator::Credis::Command_set(std::string str)
 {
     if(str.empty())
     {
@@ -35,7 +35,7 @@ bool Credis::Command_set(std::string str)
     return true;
 }
 
-bool Credis::Command_set(std::string key,std::string value)
+bool Intergrator::Credis::Command_set(std::string key,std::string value)
 {
     if(key.empty())
     {
@@ -57,7 +57,7 @@ bool Credis::Command_set(std::string key,std::string value)
     return true;
 }
 
-std::string Credis::Command_get(std::string str)
+std::string Intergrator::Credis::Command_get(std::string str)
 { 
     if(str.empty())
     {
@@ -76,7 +76,7 @@ std::string Credis::Command_get(std::string str)
     return res;
 }
 
-bool Credis::Command_del(std::string key)
+bool Intergrator::Credis::Command_del(std::string key)
 {
     if(key.empty())
     {
@@ -90,7 +90,7 @@ bool Credis::Command_del(std::string key)
     return true;
 }
 
-bool Credis::Command_jsonset(std::string json_string,std::string sql)
+bool Intergrator::Credis::Command_jsonset(std::string json_string,std::string sql)
 {
     if(json_string.empty())
     {
@@ -120,7 +120,7 @@ bool Credis::Command_jsonset(std::string json_string,std::string sql)
     return true;
 }
 
-std::string Credis::SubstrLast(std::string str)
+std::string Intergrator::Credis::SubstrLast(std::string str)
 {
     if(str.empty())
     {

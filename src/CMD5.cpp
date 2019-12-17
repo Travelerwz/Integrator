@@ -1,6 +1,7 @@
 #include "Cmd5.h"
 
-std::string CMD5::Make_Md5(std::string str)
+
+std::string Intergrator::CMD5::Make_Md5(std::string str)
 {
     if(str.empty())
     {

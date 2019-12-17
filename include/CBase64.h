@@ -9,6 +9,7 @@
 #include <string.h>
 #include <openssl/pem.h>
 
+namespace Intergrator{
 class CBase64
 {
 public:
@@ -21,4 +22,4 @@ private:
     BIO *b64,*bio;
     BUF_MEM *bptr;
 };
-
+}

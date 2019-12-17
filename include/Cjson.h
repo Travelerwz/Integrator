@@ -2,6 +2,7 @@
 #include <json/json.h>
 #include <iostream>
 
+namespace Intergrator{
 class Cjson
 {
 public:
@@ -14,3 +15,4 @@ private:
     Json::Value element;
     Json::FastWriter fast_wariter;
 };
+}

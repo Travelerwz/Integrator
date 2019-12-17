@@ -3,6 +3,7 @@
 #include "Cmysql.h"
 #include "Catomic.h"
 
+namespace Intergrator{
 class CMysqlPool
 {
 public:
@@ -30,3 +31,4 @@ private:
     int m_poolnum;
     MyLock Lock;
 };
+}

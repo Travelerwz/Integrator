@@ -2,6 +2,7 @@
 #include <iostream>
 #include <mutex>
 
+namespace Intergrator{
 class MutexLockGuard
 {
 public:
@@ -16,3 +17,4 @@ public:
 private:
     std::mutex& mutex_;
 };
+}

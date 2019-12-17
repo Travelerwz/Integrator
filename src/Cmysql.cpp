@@ -1,6 +1,6 @@
 #include "Cmysql.h"
 
-CMysql::CMysql()
+Intergrator::CMysql::CMysql()
 {
     if(NULL == mysql_init(&mysql))
     {
@@ -8,12 +8,12 @@ CMysql::CMysql()
         exit(-1);
     }
 }
-CMysql::~CMysql()
+Intergrator::CMysql::~CMysql()
 {
     mysql_close(&mysql);
 }
 
-bool CMysql::Connect(string host,string user,string passwd,string database)
+bool Intergrator::CMysql::Connect(string host,string user,string passwd,string database)
 {
     if(!mysql_real_connect(&mysql,host.c_str(),user.c_str(),passwd.c_str(),database.c_str(),0,NULL,0))
     {
@@ -24,7 +24,7 @@ bool CMysql::Connect(string host,string user,string passwd,string database)
     return true;
 } 
 
-bool CMysql::Del(string sql)
+bool Intergrator::CMysql::Del(string sql)
 {
     if(!mysql_query(&mysql,sql.c_str()))
     {
@@ -33,7 +33,7 @@ bool CMysql::Del(string sql)
     return true;
 }
 
-bool CMysql::Query(string sql)
+bool Intergrator::CMysql::Query(string sql)
 {
     if(mysql_query(&mysql,sql.c_str()))
     {
@@ -71,7 +71,7 @@ bool CMysql::Query(string sql)
 }
 
 
-string CMysql::Query_json(string sql)
+string Intergrator::CMysql::Query_json(string sql)
 {
     string str;
     if(mysql_query(&mysql,sql.c_str()))

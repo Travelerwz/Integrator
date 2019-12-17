@@ -3,6 +3,7 @@
 #include <iostream>
 #include <atomic>
 
+namespace Intergrator{
 class MyLock
 {
 public:
@@ -14,3 +15,4 @@ public:
 private:
     std::atomic_flag m_flag;
 };
+}

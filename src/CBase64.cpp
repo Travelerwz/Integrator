@@ -1,14 +1,14 @@
 #include "CBase64.h"
 
-CBase64::CBase64()
+Intergrator::CBase64::CBase64()
 {
     bptr = NULL;
 }
 
-CBase64::~CBase64()
+Intergrator::CBase64::~CBase64()
 {}
 
-std::string CBase64::Base64_encode(std::string in)
+std::string Intergrator::CBase64::Base64_encode(std::string in)
 {
     size_t size = 0;
     if(in.empty())
@@ -32,7 +32,7 @@ std::string CBase64::Base64_encode(std::string in)
     return res;
 }
 
-std::string CBase64::Replace_All(std::string str)
+std::string Intergrator::CBase64::Replace_All(std::string str)
 {
     int b = 0;
     if(str.empty())
@@ -46,7 +46,7 @@ std::string CBase64::Replace_All(std::string str)
     }
     return str;
 }
-std::string CBase64::SubstrLast(std::string str)
+std::string Intergrator::CBase64::SubstrLast(std::string str)
 {
     if(str.empty())
     {
