@@ -8,9 +8,47 @@
 #include "Cmd5.h"
 #include "CMysqlPool.h"
 #include "MutexLockGuard.h"
+#include "CQueue.h"
 using namespace Intergrator;
+using namespace std;
+void pthread_rcvTask()
+{
+    CQueue msg;
+    MSGBUF ckxmsg;
+    //memset(&ckxmsg,0,sizeof(ckxmsg));
+    while(1)
+    {
+        memset(&ckxmsg,0,sizeof(ckxmsg));
+        sleep(2);
+        msg.RecvMsg(ckxmsg);
+    }
+    
+}
+
+void pthread_sendTask()
+{
+    CQueue msg;
+    MSGBUF ckxmsg;
+    memset(&ckxmsg,0,sizeof(ckxmsg));
+    strcpy(ckxmsg.message,"123");
+    ckxmsg.id = 10;
+    while(1)
+    {
+        sleep(1);
+         msg.SendMsg(ckxmsg);
+    }
+   
+}
 int main()
 {
+    
+    //sleep(10);
+    thread t1(pthread_rcvTask);
+    thread t2(pthread_sendTask);
+    t1.join();
+    t2.join();
+    
+
     // mutex mt;
     // shared_ptr<MutexLockGuard>ptrmt = make_shared<MutexLockGuard>(mt);
     // string sql = "select * from test";

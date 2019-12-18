@@ -7,7 +7,7 @@ LIB = ../lib/liblog4cplus.so
 INCLUDEDIR = -I../include 
 TARGET = test
 
-OBJ = test_log4cpp.cpp CMyLogger.cpp
+OBJ = test_msg.cpp CMsg.cpp
 
 $(TARGET):$(OBJ)
 	$(CXX) $(INCLUDEDIR) -o $@ $^ $(LIB)
