@@ -8,34 +8,33 @@
 #include "Cmd5.h"
 #include "CMysqlPool.h"
 #include "MutexLockGuard.h"
-#include "CQueue.h"
+#include "Cqueue.h"
 using namespace Intergrator;
 using namespace std;
 void pthread_rcvTask()
 {
-    CQueue msg;
-    MSGBUF ckxmsg;
+    MSG ckxmsg;
     //memset(&ckxmsg,0,sizeof(ckxmsg));
     while(1)
     {
         memset(&ckxmsg,0,sizeof(ckxmsg));
         sleep(2);
-        msg.RecvMsg(ckxmsg);
+        QUEUE.Get(&ckxmsg);
+        cout<<"msg:"<<ckxmsg.message<<endl;
     }
     
 }
 
 void pthread_sendTask()
 {
-    CQueue msg;
-    MSGBUF ckxmsg;
+    MSG ckxmsg;
     memset(&ckxmsg,0,sizeof(ckxmsg));
     strcpy(ckxmsg.message,"123");
     ckxmsg.id = 10;
     while(1)
     {
         sleep(1);
-         msg.SendMsg(ckxmsg);
+         QUEUE.Add(ckxmsg);
     }
    
 }

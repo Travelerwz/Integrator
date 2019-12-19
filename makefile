@@ -9,7 +9,7 @@ CLIB = -lhiredis ./lib/libjson_linux-gcc-5.4.0_libmt.so -L./lib -lssl -lcrypto .
 CXX := g++ 
 INCLUDEDIR = -I./include 
 TARGET = ./target/test
-OBJ = Cmysql.o main.o Credis.o Cjson.o CMD5.o CBase64.o Catomic.o CEpoll.o CMysqlPool.o CMyLogger.o CMsg.o 
+OBJ = Cmysql.o main.o Credis.o Cjson.o CMD5.o CBase64.o Catomic.o CEpoll.o CMysqlPool.o CMyLogger.o Cqueue.o
 
 
 $(TARGET):$(OBJ)
